@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone — Transforma tu cuerpo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">💪 FitZone</div>
+      <div class="nav-links">
+        <a href="#hero">Inicio</a>
+        <a href="#planes">Planes</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="particle" id="particles"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-badge">🔥 30 días de prueba gratis</span>
+      <h1>Transforma tu <span class="gradient-text" id="typingTarget">cuerpo</span></h1>
+      <p>El mejor gimnasio con entrenadores certificados, equipamento de última generación y planes personalizados para cada nivel.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="showPlanModal()">Comenzar ahora →</button>
+        <button class="btn-secondary" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">Ver planes</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="logos">
+    <div class="logos-track">
+      <span>🏋️ CrossFit</span><span>🧘 Yoga</span><span>🥊 Box</span><span>🚴 Spinning</span><span>🏊 Natación</span><span>🏋️ CrossFit</span><span>🧘 Yoga</span><span>🥊 Box</span><span>🚴 Spinning</span><span>🏊 Natación</span>
+    </div>
+  </section>
+
+  <section class="planes" id="planes">
+    <h2 class="section-title">Elige tu <span class="gradient-text">plan</span></h2>
+    <p class="section-sub">Todos los planes incluyen acceso a áreas comunes y vestidores</p>
+    <div class="planes-grid">
+      <div class="plan-card reveal">
+        <h3>Básico</h3>
+        <div class="plan-price"><span class="currency">$</span>19<span class="period">/mes</span></div>
+        <ul>
+          <li>✅ Acceso en hora libre</li>
+          <li>✅ 3 días por semana</li>
+          <li>✅ Área de pesas</li>
+          <li>❌ Clases grupales</li>
+          <li>❌ Entrenador personal</li>
+        </ul>
+        <button class="btn-primary" onclick="showPlanModal('Básico', '$19/mes')">Elegir plan</button>
+      </div>
+      <div class="plan-card featured reveal">
+        <span class="featured-badge">Más popular</span>
+        <h3>Premium</h3>
+        <div class="plan-price"><span class="currency">$</span>39<span class="period">/mes</span></div>
+        <ul>
+          <li>✅ Acceso total 24/7</li>
+          <li>✅ Días ilimitados</li>
+          <li>✅ Área de pesas + cardio</li>
+          <li>✅ Clases grupales</li>
+          <li>❌ Entrenador personal</li>
+        </ul>
+        <button class="btn-primary" onclick="showPlanModal('Premium', '$39/mes')">Elegir plan</button>
+      </div>
+      <div class="plan-card reveal">
+        <h3>Elite</h3>
+        <div class="plan-price"><span class="currency">$</span>69<span class="period">/mes</span></div>
+        <ul>
+          <li>✅ Acceso total 24/7</li>
+          <li>✅ Días ilimitados</li>
+          <li>✅ Todas las áreas</li>
+          <li>✅ Clases grupales</li>
+          <li>✅ Entrenador personal</li>
+        </ul>
+        <button class="btn-primary" onclick="showPlanModal('Elite', '$69/mes')">Elegir plan</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonios" id="testimonios">
+    <h2 class="section-title">Lo que dicen <span class="gradient-text">nuestros miembros</span></h2>
+    <div class="testimonios-carousel" id="testimonialCarousel">
+      <div class="testimonial-track" id="testimonialTrack"></div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <h2 class="section-title">¿Listo para <span class="gradient-text">empezar?</span></h2>
+    <p class="section-sub">Déjanos tus datos y te contactaremos</p>
+    <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="form-row">
+        <input type="tel" placeholder="Teléfono">
+        <select>
+          <option>Básico</option>
+          <option>Premium</option>
+          <option>Elite</option>
+        </select>
+      </div>
+      <textarea placeholder="Mensaje (opcional)" rows="3"></textarea>
+      <button type="submit" class="btn-primary">Enviar mensaje →</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>by CapiDev</p>
+  </footer>
+
+  <div class="modal-overlay" id="planModal">
+    <div class="modal">
+      <div class="modal-icon">💪</div>
+      <h3>¡Plan seleccionado!</h3>
+      <p id="planModalText">Has elegido el plan <strong>Premium</strong> por $39/mes</p>
+      <p class="modal-note">Esta es una demo visual. En producción se abriría el proceso de pago.</p>
+      <button class="btn-primary" onclick="closePlanModal()">Entendido</button>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS — Punto de Venta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">🧾 POS System</div>
+      <div class="nav-info">
+        <span>Mesa 5 • Mesero: Carlos</span>
+        <span class="nav-date" id="navDate"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pos-layout">
+    <div class="products-section">
+      <div class="products-header">
+        <h2>Productos</h2>
+        <div class="category-tabs" id="categoryTabs"></div>
+      </div>
+      <div class="products-scroll" id="productsScroll">
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </div>
+
+    <aside class="cart-section" id="cartSection">
+      <div class="cart-header">
+        <h3>Pedido actual</h3>
+        <span class="cart-item-count" id="cartItemCount">0</span>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <span>🛒</span>
+          <p>Selecciona productos para agregar al pedido</p>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <span class="total-amount" id="totalAmount">$0.00</span>
+        </div>
+        <button class="btn-charge" id="btnCharge" onclick="showReceipt()">Cobrar</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay" id="receiptModal">
+    <div class="modal receipt-modal">
+      <div class="receipt-header">
+        <h3>🧾 Recibo</h3>
+        <div class="receipt-line"></div>
+      </div>
+      <div class="receipt-items" id="receiptItems"></div>
+      <div class="receipt-line"></div>
+      <div class="receipt-total" id="receiptTotal"></div>
+      <div class="receipt-footer">
+        <p>✓ Pago procesado exitosamente</p>
+        <p class="receipt-note">Demo visual — esta es una simulación</p>
+      </div>
+      <button class="btn-close-receipt" onclick="closeReceipt()">Nuevo pedido</button>
+    </div>
+  </div>
+
+  <footer class="footer"><p>by CapiDev</p></footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>

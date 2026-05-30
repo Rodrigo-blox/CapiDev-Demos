@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Gobierno — Transparencia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="navigate('inicio')">🏛️ PortalGob</div>
+      <div class="nav-links">
+        <a class="active" data-section="inicio" onclick="navigate('inicio')">Inicio</a>
+        <a data-section="transparencia" onclick="navigate('transparencia')">Transparencia</a>
+        <a data-section="tramites" onclick="navigate('tramites')">Trámites</a>
+        <a data-section="contacto" onclick="navigate('contacto')">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page active" id="sec-inicio">
+    <div class="hero-gov">
+      <div class="hero-gov-bg"></div>
+      <div class="hero-gov-content">
+        <span class="hero-gov-badge">⚖️ Gobierno Abierto</span>
+        <h1>Municipalidad de <br><span class="highlight">Nueva Esperanza</span></h1>
+        <p>Trabajando juntos por una comunidad más justa, transparente y participativa.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="num" data-target="48">0</span><span class="label">Trámites digitales</span></div>
+          <div class="hero-stat"><span class="num" data-target="12640">0</span><span class="label">Ciudadanos atendidos</span></div>
+          <div class="hero-stat"><span class="num" data-target="92">0</span><span class="label">% Satisfacción</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="sec-transparencia">
+    <div class="section-header">
+      <h2>📊 Transparencia</h2>
+      <p>Consulta los datos abiertos de la gestión municipal</p>
+    </div>
+    <div class="table-controls">
+      <input type="text" id="searchInput" placeholder="Buscar por concepto..." oninput="filterTable()">
+      <select id="categoryFilter" onchange="filterTable()">
+        <option value="all">Todas las categorías</option>
+        <option value="Educación">Educación</option>
+        <option value="Salud">Salud</option>
+        <option value="Infraestructura">Infraestructura</option>
+        <option value="Cultura">Cultura</option>
+        <option value="Seguridad">Seguridad</option>
+      </select>
+      <span class="table-info" id="tableInfo">Mostrando 1-10 de 24</span>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)"># ↕</th>
+            <th onclick="sortTable(1)">Concepto ↕</th>
+            <th onclick="sortTable(2)">Categoría ↕</th>
+            <th onclick="sortTable(3)">Monto ↕</th>
+            <th onclick="sortTable(4)">Fecha ↕</th>
+            <th onclick="sortTable(5)">Estado ↕</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </section>
+
+  <section class="page" id="sec-tramites">
+    <div class="section-header">
+      <h2>📋 Trámites</h2>
+      <p>Realiza tus trámites en línea de forma rápida y segura</p>
+    </div>
+    <div class="tramites-grid">
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">🪪</span>
+        <h3>Licencia de Conducir</h3>
+        <p>Solicita o renueva tu licencia de conducir.</p>
+        <span class="tramite-tag">En línea</span>
+      </div>
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">🏠</span>
+        <h3>Permiso de Construcción</h3>
+        <p>Solicita permisos para obras menores y mayores.</p>
+        <span class="tramite-tag">En línea</span>
+      </div>
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">📄</span>
+        <h3>Certificado de Residencia</h3>
+        <p>Obtén tu certificado de domicilio actualizado.</p>
+        <span class="tramite-tag">En línea</span>
+      </div>
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">💧</span>
+        <h3>Subsidio de Agua</h3>
+        <p>Solicita el subsidio para servicios básicos.</p>
+        <span class="tramite-tag">Presencial</span>
+      </div>
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">🎭</span>
+        <h3>Evento Cultural</h3>
+        <p>Registra tu evento en el calendario municipal.</p>
+        <span class="tramite-tag">Mixto</span>
+      </div>
+      <div class="tramite-card reveal">
+        <span class="tramite-icon">🚮</span>
+        <h3>Recolección Especial</h3>
+        <p>Solicita recolección de residuos voluminosos.</p>
+        <span class="tramite-tag">En línea</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="sec-contacto">
+    <div class="section-header">
+      <h2>✉️ Contacto</h2>
+      <p>Estamos para servirte. Envíanos tus consultas o sugerencias.</p>
+    </div>
+    <div class="contact-container">
+      <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" required placeholder="Ej: María García">
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" required placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label>Asunto</label>
+          <select required>
+            <option value="">Selecciona un asunto</option>
+            <option>Consulta general</option>
+            <option>Sugerencia</option>
+            <option>Reclamo</option>
+            <option>Solicitud de información</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        <button type="submit" class="btn-gov">Enviar mensaje</button>
+      </form>
+      <div class="contact-info">
+        <div class="info-card"><span>📍</span><div><strong>Dirección</strong><p>Av. Central 123, Centro</p></div></div>
+        <div class="info-card"><span>📞</span><div><strong>Teléfono</strong><p>(01) 234 5678</p></div></div>
+        <div class="info-card"><span>🕐</span><div><strong>Horario</strong><p>Lun-Vie 8:00 - 16:00</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><p>by CapiDev</p></footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

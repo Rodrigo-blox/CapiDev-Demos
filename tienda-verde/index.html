@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Verde — Eco Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="navigate('inicio')">🌿 TiendaVerde</div>
+      <div class="nav-links">
+        <a class="active" data-view="inicio" onclick="navigate('inicio')">Inicio</a>
+        <a data-view="productos" onclick="navigate('productos')">Productos</a>
+        <a data-view="carrito" onclick="navigate('carrito')">
+          Carrito <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page" id="view-inicio">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">🌱 100% Natural</span>
+        <h1>Productos que cuidan <br><span class="gradient-text">el planeta</span></h1>
+        <p>Descubre nuestra colección de productos ecológicos, sostenibles y libres de plásticos. Cada compra planta un árbol.</p>
+        <button class="btn-primary" onclick="navigate('productos')">Ver productos →</button>
+      </div>
+    </section>
+    <section class="features">
+      <div class="feature-card reveal">
+        <span class="feature-icon">🌍</span>
+        <h3>Compromiso Ambiental</h3>
+        <p>Por cada producto vendido, plantamos un árbol en zonas deforestadas.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">♻️</span>
+        <h3>Zero Waste</h3>
+        <p>Empaques biodegradables y proceso de producción carbono neutral.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🚚</span>
+        <h3>Envio Local</h3>
+        <p>Entregas en 24-48 horas con repartidores en bicicleta eléctrica.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="page hidden" id="view-productos">
+    <section class="catalog">
+      <h2>Nuestros Productos</h2>
+      <p class="catalog-sub">Selecciona tus favoritos y arma tu carrito ecológico</p>
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+  </div>
+
+  <div class="page hidden" id="view-carrito">
+    <section class="cart-view">
+      <h2>Tu Carrito</h2>
+      <div id="cartContent">
+        <div class="cart-empty">
+          <span class="cart-empty-icon">🛒</span>
+          <p>Tu carrito está vacío</p>
+          <button class="btn-primary" onclick="navigate('productos')">Ver productos</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="modalConfirm">
+    <div class="modal">
+      <div class="modal-icon">✅</div>
+      <h3>¡Pedido realizado!</h3>
+      <p>Esta es una demo visual. En un sistema real recibirías un correo de confirmación.</p>
+      <div class="modal-details">
+        <span>Total: <strong id="modalTotal">$0</strong></span>
+        <span>Productos: <strong id="modalCount">0</strong></span>
+      </div>
+      <button class="btn-primary" onclick="closeModal()">Seguir comprando</button>
+    </div>
+  </div>
+
+  <footer class="footer"><p>by CapiDev</p></footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

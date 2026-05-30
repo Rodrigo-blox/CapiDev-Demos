@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Tech — ByteStream</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">📡 ByteStream</div>
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Buscar artículos..." oninput="filterArticles(this.value)">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="blog-layout">
+    <main class="blog-main" id="blogMain">
+      <div class="blog-header">
+        <h1>Últimos artículos</h1>
+        <p>Tecnología, desarrollo y tendencias digitales</p>
+      </div>
+      <div class="articles-grid" id="articlesGrid"></div>
+    </main>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Categorías</h3>
+        <div class="category-list" id="categoryList"></div>
+      </div>
+      <div class="sidebar-card">
+        <h3>Más leídos</h3>
+        <div class="popular-list" id="popularList"></div>
+      </div>
+      <div class="sidebar-card">
+        <h3>Tags</h3>
+        <div class="tag-list" id="tagList"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="article-overlay" id="articleOverlay">
+    <div class="article-modal" id="articleModal">
+      <button class="close-btn" onclick="closeArticle()">✕</button>
+      <div id="articleContent"></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>by CapiDev</p></footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>

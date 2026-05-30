@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Panel Analítico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light" id="appBody">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">📊 PanelApp</div>
+    <nav class="sidebar-nav">
+      <a class="active" data-view="inicio" onclick="navigate('inicio')">📊 Dashboard</a>
+      <a data-view="analytics" onclick="navigate('analytics')">📈 Analytics</a>
+      <a data-view="usuarios" onclick="navigate('usuarios')">👥 Usuarios</a>
+      <a data-view="config" onclick="navigate('config')">⚙️ Config</a>
+    </nav>
+    <div class="sidebar-footer">
+      <label class="toggle-label">
+        <span>🌙</span>
+        <div class="toggle" onclick="toggleTheme()">
+          <div class="toggle-knob" id="toggleKnob"></div>
+        </div>
+        <span>☀️</span>
+      </label>
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    <div class="view active" id="view-inicio">
+      <header class="view-header">
+        <h1>Dashboard</h1>
+        <p>Resumen general del sistema</p>
+      </header>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <span class="stat-number counter" data-target="2483">0</span>
+            <span class="stat-label">Usuarios activos</span>
+          </div>
+          <span class="stat-change up">↑ 12.5%</span>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">💰</div>
+          <div class="stat-info">
+            <span class="stat-number counter" data-target="84720">0</span>
+            <span class="stat-label">Ingresos totales</span>
+          </div>
+          <span class="stat-change up">↑ 8.3%</span>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">📦</div>
+          <div class="stat-info">
+            <span class="stat-number counter" data-target="1523">0</span>
+            <span class="stat-label">Órdenes</span>
+          </div>
+          <span class="stat-change down">↓ 2.1%</span>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-info">
+            <span class="stat-number counter" data-target="4.8">0</span>
+            <span class="stat-label">Calificación</span>
+          </div>
+          <span class="stat-change up">↑ 0.3%</span>
+        </div>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card reveal">
+          <h3>Ingresos mensuales</h3>
+          <div class="bar-chart" id="barChart"></div>
+        </div>
+        <div class="chart-card reveal">
+          <h3>Distribución</h3>
+          <div class="donut-chart">
+            <div class="donut" id="donutChart"></div>
+            <div class="donut-legend" id="donutLegend"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-analytics">
+      <header class="view-header">
+        <h1>Analytics</h1>
+        <p>Métricas detalladas de rendimiento</p>
+      </header>
+      <div class="analytics-grid">
+        <div class="analytics-card reveal">
+          <h3>Progreso general</h3>
+          <div class="progress-item"><span>Ventas</span><div class="progress-bar"><div class="progress-fill" style="width:0%" data-width="85"></div></div><span>85%</span></div>
+          <div class="progress-item"><span>Tráfico</span><div class="progress-bar"><div class="progress-fill" style="width:0%" data-width="62"></div></div><span>62%</span></div>
+          <div class="progress-item"><span>Conversión</span><div class="progress-bar"><div class="progress-fill" style="width:0%" data-width="43"></div></div><span>43%</span></div>
+          <div class="progress-item"><span>Retención</span><div class="progress-bar"><div class="progress-fill" style="width:0%" data-width="76"></div></div><span>76%</span></div>
+        </div>
+        <div class="analytics-card reveal">
+          <h3>Actividad reciente</h3>
+          <div class="activity-list">
+            <div class="activity-item"><span>🟢</span><div><strong>Usuario registrado</strong><p>Ana Martínez — hace 2 min</p></div></div>
+            <div class="activity-item"><span>🟡</span><div><strong>Nueva orden</strong><p>#2841 — hace 15 min</p></div></div>
+            <div class="activity-item"><span>🔵</span><div><strong>Pago procesado</strong><p>$1,230 — hace 1 hora</p></div></div>
+            <div class="activity-item"><span>🟣</span><div><strong>Actualización</strong><p>Perfil modificado — hace 2 horas</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-usuarios">
+      <header class="view-header">
+        <h1>Usuarios</h1>
+        <p>Gestión de usuarios del sistema</p>
+      </header>
+      <div class="table-card reveal">
+        <div class="table-search"><input type="text" placeholder="Buscar usuario..." oninput="filterUsers(this.value)"></div>
+        <table class="data-table">
+          <thead><tr><th>Usuario</th><th>Rol</th><th>Email</th><th>Estado</th></tr></thead>
+          <tbody id="usersBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="view" id="view-config">
+      <header class="view-header">
+        <h1>Configuración</h1>
+        <p>Ajustes del sistema</p>
+      </header>
+      <div class="config-card reveal">
+        <div class="config-item"><span>Notificaciones por email</span><div class="toggle" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div></div>
+        <div class="config-item"><span>Autenticación en dos pasos</span><div class="toggle" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div></div>
+        <div class="config-item"><span>Modo oscuro automático</span><div class="toggle" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div></div>
+        <button class="btn-save" onclick="showToast('✅ Cambios guardados — demo visual')">Guardar cambios</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><p>by CapiDev</p></footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
