@@ -1,18 +1,18 @@
 const products = [
-  { id: 1, name: 'Hamburguesa Clásica', price: 12.90, category: 'Comidas', img: 'https://picsum.photos/seed/burger/200/200' },
-  { id: 2, name: 'Papas Fritas Grandes', price: 5.50, category: 'Comidas', img: 'https://picsum.photos/seed/fries/200/200' },
-  { id: 3, name: 'Pizza Personal', price: 14.90, category: 'Comidas', img: 'https://picsum.photos/seed/pizza/200/200' },
-  { id: 4, name: 'Ensalada César', price: 11.50, category: 'Comidas', img: 'https://picsum.photos/seed/salad/200/200' },
-  { id: 5, name: 'Tacos al Pastor', price: 13.50, category: 'Comidas', img: 'https://picsum.photos/seed/tacos/200/200' },
-  { id: 6, name: 'Coca-Cola 500ml', price: 3.50, category: 'Bebidas', img: 'https://picsum.photos/seed/coke/200/200' },
-  { id: 7, name: 'Jugo Natural', price: 4.90, category: 'Bebidas', img: 'https://picsum.photos/seed/juice/200/200' },
-  { id: 8, name: 'Agua Mineral', price: 2.50, category: 'Bebidas', img: 'https://picsum.photos/seed/water/200/200' },
-  { id: 9, name: 'Cerveza Artesanal', price: 6.90, category: 'Bebidas', img: 'https://picsum.photos/seed/beer/200/200' },
-  { id: 10, name: 'Limonada Natural', price: 4.50, category: 'Bebidas', img: 'https://picsum.photos/seed/lemonade/200/200' },
-  { id: 11, name: 'Pastel de Chocolate', price: 7.90, category: 'Postres', img: 'https://picsum.photos/seed/cake/200/200' },
-  { id: 12, name: 'Helado Sundae', price: 6.50, category: 'Postres', img: 'https://picsum.photos/seed/icecream/200/200' },
-  { id: 13, name: 'Flan Casero', price: 5.90, category: 'Postres', img: 'https://picsum.photos/seed/flan/200/200' },
-  { id: 14, name: 'Brownie con Helado', price: 8.50, category: 'Postres', img: 'https://picsum.photos/seed/brownie/200/200' }
+  { id: 1, name: 'Hamburguesa Clásica', price: 39, category: 'Comidas', img: 'https://picsum.photos/seed/burger/200/200' },
+  { id: 2, name: 'Papas Fritas Grandes', price: 18, category: 'Comidas', img: 'https://picsum.photos/seed/fries/200/200' },
+  { id: 3, name: 'Pizza Personal', price: 45, category: 'Comidas', img: 'https://picsum.photos/seed/pizza/200/200' },
+  { id: 4, name: 'Ensalada César', price: 35, category: 'Comidas', img: 'https://picsum.photos/seed/salad/200/200' },
+  { id: 5, name: 'Tacos al Pastor', price: 42, category: 'Comidas', img: 'https://picsum.photos/seed/tacos/200/200' },
+  { id: 6, name: 'Coca-Cola 500ml', price: 10, category: 'Bebidas', img: 'https://picsum.photos/seed/coke/200/200' },
+  { id: 7, name: 'Jugo Natural', price: 15, category: 'Bebidas', img: 'https://picsum.photos/seed/juice/200/200' },
+  { id: 8, name: 'Agua Mineral', price: 8, category: 'Bebidas', img: 'https://picsum.photos/seed/water/200/200' },
+  { id: 9, name: 'Cerveza Artesanal', price: 22, category: 'Bebidas', img: 'https://picsum.photos/seed/beer/200/200' },
+  { id: 10, name: 'Limonada Natural', price: 14, category: 'Bebidas', img: 'https://picsum.photos/seed/lemonade/200/200' },
+  { id: 11, name: 'Pastel de Chocolate', price: 25, category: 'Postres', img: 'https://picsum.photos/seed/cake/200/200' },
+  { id: 12, name: 'Helado Sundae', price: 20, category: 'Postres', img: 'https://picsum.photos/seed/icecream/200/200' },
+  { id: 13, name: 'Flan Casero', price: 18, category: 'Postres', img: 'https://picsum.photos/seed/flan/200/200' },
+  { id: 14, name: 'Brownie con Helado', price: 28, category: 'Postres', img: 'https://picsum.photos/seed/brownie/200/200' }
 ];
 
 const categories = ['Todas', 'Comidas', 'Bebidas', 'Postres'];
@@ -27,7 +27,7 @@ function renderProducts(cat) {
       <img src="${p.img}" alt="${p.name}" loading="lazy">
       <div class="product-info">
         <h4>${p.name}</h4>
-        <div class="price">$${p.price.toFixed(2)}</div>
+        <div class="price">Bs ${p.price.toFixed(2)}</div>
         <span class="category-label">${p.category}</span>
         <button class="btn-add" onclick="addToCart(${p.id})">+ Agregar</button>
       </div>
@@ -93,19 +93,19 @@ function renderCart() {
         <img src="${i.img}" alt="${i.name}">
         <div class="cart-item-info">
           <h4>${i.name}</h4>
-          <span class="item-price">$${i.price.toFixed(2)}</span>
+          <span class="item-price">Bs ${i.price.toFixed(2)}</span>
         </div>
         <div class="cart-item-qty">
           <button onclick="updateQty(${i.id},-1)">−</button>
           <span>${i.qty}</span>
           <button onclick="updateQty(${i.id},1)">+</button>
         </div>
-        <span class="cart-item-subtotal">$${(i.price * i.qty).toFixed(2)}</span>
+        <span class="cart-item-subtotal">Bs ${(i.price * i.qty).toFixed(2)}</span>
       </div>
     `).join('');
   }
 
-  document.getElementById('totalAmount').textContent = `$${total.toFixed(2)}`;
+  document.getElementById('totalAmount').textContent = `Bs ${total.toFixed(2)}`;
   document.getElementById('btnCharge').disabled = cart.length === 0;
 }
 
@@ -125,12 +125,12 @@ function showReceipt() {
   items.innerHTML = cart.map(i => `
     <div class="receipt-item">
       <span class="receipt-item-name">${i.qty}x ${i.name}</span>
-      <span class="receipt-item-price">$${(i.price * i.qty).toFixed(2)}</span>
+      <span class="receipt-item-price">Bs ${(i.price * i.qty).toFixed(2)}</span>
     </div>
   `).join('');
   document.getElementById('receiptTotal').innerHTML = `
     <span>Total</span>
-    <span>$${total.toFixed(2)}</span>
+    <span>Bs ${total.toFixed(2)}</span>
   `;
   document.getElementById('receiptModal').classList.add('active');
 }

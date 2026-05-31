@@ -1,12 +1,12 @@
 const products = [
-  { id: 1, name: 'Kit Bambú', price: 29.90, desc: 'Cepillos, cepillo dental y pajitas de bambú orgánico.', img: 'https://picsum.photos/seed/bamboo/400/300', eco: true },
-  { id: 2, name: 'Bolsa Reutilizable', price: 12.50, desc: 'Bolsa plegable de algodón orgánico. 40L de capacidad.', img: 'https://picsum.photos/seed/bag/400/300', eco: true },
-  { id: 3, name: 'Jabón Artesanal', price: 8.90, desc: 'Jabón natural de oliva y lavanda. Sin químicos.', img: 'https://picsum.photos/seed/soap/400/300', eco: true },
-  { id: 4, name: 'Botella Reutilizable', price: 24.90, desc: 'Botella térmica de acero inoxidable. 750ml.', img: 'https://picsum.photos/seed/bottle/400/300', eco: true },
-  { id: 5, name: 'Compostador Hogar', price: 89.90, desc: 'Compostador de cocina con carbón activado.', img: 'https://picsum.photos/seed/compost/400/300', eco: true },
-  { id: 6, name: 'Pack Ahorro Eco', price: 49.90, desc: 'Set de 4 productos ecológicos esenciales.', img: 'https://picsum.photos/seed/eco-pack/400/300', eco: true },
-  { id: 7, name: 'Shampoo Sólido', price: 14.90, desc: 'Shampoo sólido de romero y menta.', img: 'https://picsum.photos/seed/shampoo/400/300', eco: true },
-  { id: 8, name: 'Velas de Cera Natural', price: 18.90, desc: 'Velas artesanales de cera de soya.', img: 'https://picsum.photos/seed/candle/400/300', eco: true }
+  { id: 1, name: 'Kit Bambú', price: 89, desc: 'Cepillos, cepillo dental y pajitas de bambú orgánico.', img: 'https://picsum.photos/seed/bamboo/400/300', eco: true },
+  { id: 2, name: 'Bolsa Reutilizable', price: 35, desc: 'Bolsa plegable de algodón orgánico. 40L de capacidad.', img: 'https://picsum.photos/seed/bag/400/300', eco: true },
+  { id: 3, name: 'Jabón Artesanal', price: 25, desc: 'Jabón natural de oliva y lavanda. Sin químicos.', img: 'https://picsum.photos/seed/soap/400/300', eco: true },
+  { id: 4, name: 'Botella Reutilizable', price: 69, desc: 'Botella térmica de acero inoxidable. 750ml.', img: 'https://picsum.photos/seed/bottle/400/300', eco: true },
+  { id: 5, name: 'Compostador Hogar', price: 249, desc: 'Compostador de cocina con carbón activado.', img: 'https://picsum.photos/seed/compost/400/300', eco: true },
+  { id: 6, name: 'Pack Ahorro Eco', price: 139, desc: 'Set de 4 productos ecológicos esenciales.', img: 'https://picsum.photos/seed/eco-pack/400/300', eco: true },
+  { id: 7, name: 'Shampoo Sólido', price: 42, desc: 'Shampoo sólido de romero y menta.', img: 'https://picsum.photos/seed/shampoo/400/300', eco: true },
+  { id: 8, name: 'Velas de Cera Natural', price: 55, desc: 'Velas artesanales de cera de soya.', img: 'https://picsum.photos/seed/candle/400/300', eco: true }
 ];
 
 let cart = [];
@@ -19,7 +19,7 @@ function renderProducts() {
       <div class="product-body">
         ${p.eco ? '<span class="badge-eco">🌱 Eco</span>' : ''}
         <h3>${p.name}</h3>
-        <div class="price">$${p.price.toFixed(2)}</div>
+        <div class="price">Bs ${p.price.toFixed(2)}</div>
         <div class="desc">${p.desc}</div>
         <div class="product-actions">
           <button class="btn-add" onclick="addToCart(${p.id})">Agregar</button>
@@ -53,21 +53,21 @@ function renderCart() {
           <img src="${item.img}" alt="${item.name}">
           <div class="cart-item-info">
             <h4>${item.name}</h4>
-            <p>$${item.price.toFixed(2)} c/u</p>
+            <p>Bs ${item.price.toFixed(2)} c/u</p>
           </div>
           <div class="cart-item-qty">
             <button class="qty-btn" onclick="updateQty(${item.id},-1)">−</button>
             <span>${item.qty}</span>
             <button class="qty-btn" onclick="updateQty(${item.id},1)">+</button>
           </div>
-          <span class="cart-item-subtotal">$${(item.price * item.qty).toFixed(2)}</span>
+          <span class="cart-item-subtotal">Bs ${(item.price * item.qty).toFixed(2)}</span>
           <button class="btn-remove" onclick="removeFromCart(${item.id})">✕</button>
         </div>
       `).join('')}
     </div>
     <div class="cart-total-bar">
       <span class="total-label">Total</span>
-      <span class="total-value">$${total.toFixed(2)}</span>
+      <span class="total-value">Bs ${total.toFixed(2)}</span>
     </div>
     <button class="btn-primary" onclick="checkout()" style="width:100%;justify-content:center;margin-top:1rem">
       Comprar ahora
@@ -113,7 +113,7 @@ function updateBadge() {
 function checkout() {
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
-  document.getElementById('modalTotal').textContent = `$${total.toFixed(2)}`;
+  document.getElementById('modalTotal').textContent = `Bs ${total.toFixed(2)}`;
   document.getElementById('modalCount').textContent = count;
   document.getElementById('modalConfirm').classList.add('active');
   launchConfetti();
