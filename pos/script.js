@@ -1,18 +1,18 @@
 const products = [
-  { id: 1, name: 'Hamburguesa Clásica', price: 39, category: 'Comidas', img: 'https://picsum.photos/seed/burger/200/200' },
-  { id: 2, name: 'Papas Fritas Grandes', price: 18, category: 'Comidas', img: 'https://picsum.photos/seed/fries/200/200' },
-  { id: 3, name: 'Pizza Personal', price: 45, category: 'Comidas', img: 'https://picsum.photos/seed/pizza/200/200' },
-  { id: 4, name: 'Ensalada César', price: 35, category: 'Comidas', img: 'https://picsum.photos/seed/salad/200/200' },
-  { id: 5, name: 'Tacos al Pastor', price: 42, category: 'Comidas', img: 'https://picsum.photos/seed/tacos/200/200' },
-  { id: 6, name: 'Coca-Cola 500ml', price: 10, category: 'Bebidas', img: 'https://picsum.photos/seed/coke/200/200' },
-  { id: 7, name: 'Jugo Natural', price: 15, category: 'Bebidas', img: 'https://picsum.photos/seed/juice/200/200' },
-  { id: 8, name: 'Agua Mineral', price: 8, category: 'Bebidas', img: 'https://picsum.photos/seed/water/200/200' },
-  { id: 9, name: 'Cerveza Artesanal', price: 22, category: 'Bebidas', img: 'https://picsum.photos/seed/beer/200/200' },
-  { id: 10, name: 'Limonada Natural', price: 14, category: 'Bebidas', img: 'https://picsum.photos/seed/lemonade/200/200' },
-  { id: 11, name: 'Pastel de Chocolate', price: 25, category: 'Postres', img: 'https://picsum.photos/seed/cake/200/200' },
-  { id: 12, name: 'Helado Sundae', price: 20, category: 'Postres', img: 'https://picsum.photos/seed/icecream/200/200' },
-  { id: 13, name: 'Flan Casero', price: 18, category: 'Postres', img: 'https://picsum.photos/seed/flan/200/200' },
-  { id: 14, name: 'Brownie con Helado', price: 28, category: 'Postres', img: 'https://picsum.photos/seed/brownie/200/200' }
+  { id: 1, name: 'Hamburguesa Clásica', price: 39, category: 'Comidas', img: 'https://loremflickr.com/200/200/burger?lock=10' },
+  { id: 2, name: 'Papas Fritas Grandes', price: 18, category: 'Comidas', img: 'https://loremflickr.com/200/200/french,fries?lock=11' },
+  { id: 3, name: 'Pizza Personal', price: 45, category: 'Comidas', img: 'https://loremflickr.com/200/200/pizza?lock=12' },
+  { id: 4, name: 'Ensalada César', price: 35, category: 'Comidas', img: 'https://loremflickr.com/200/200/salad?lock=13' },
+  { id: 5, name: 'Tacos al Pastor', price: 42, category: 'Comidas', img: 'https://loremflickr.com/200/200/tacos?lock=14' },
+  { id: 6, name: 'Coca-Cola 500ml', price: 10, category: 'Bebidas', img: 'https://loremflickr.com/200/200/coca,cola?lock=15' },
+  { id: 7, name: 'Jugo Natural', price: 15, category: 'Bebidas', img: 'https://loremflickr.com/200/200/juice,natural?lock=16' },
+  { id: 8, name: 'Agua Mineral', price: 8, category: 'Bebidas', img: 'https://loremflickr.com/200/200/water,bottle?lock=17' },
+  { id: 9, name: 'Cerveza Artesanal', price: 22, category: 'Bebidas', img: 'https://loremflickr.com/200/200/beer,craft?lock=18' },
+  { id: 10, name: 'Limonada Natural', price: 14, category: 'Bebidas', img: 'https://loremflickr.com/200/200/lemonade?lock=19' },
+  { id: 11, name: 'Pastel de Chocolate', price: 25, category: 'Postres', img: 'https://loremflickr.com/200/200/chocolate,cake?lock=20' },
+  { id: 12, name: 'Helado Sundae', price: 20, category: 'Postres', img: 'https://loremflickr.com/200/200/ice,cream?lock=21' },
+  { id: 13, name: 'Flan Casero', price: 18, category: 'Postres', img: 'https://loremflickr.com/200/200/flan,dessert?lock=22' },
+  { id: 14, name: 'Brownie con Helado', price: 28, category: 'Postres', img: 'https://loremflickr.com/200/200/brownie?lock=23' }
 ];
 
 const categories = ['Todas', 'Comidas', 'Bebidas', 'Postres'];

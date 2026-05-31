@@ -1,12 +1,12 @@
 const products = [
-  { id: 1, name: 'Kit Bambú', price: 89, desc: 'Cepillos, cepillo dental y pajitas de bambú orgánico.', img: 'https://picsum.photos/seed/bamboo/400/300', eco: true },
-  { id: 2, name: 'Bolsa Reutilizable', price: 35, desc: 'Bolsa plegable de algodón orgánico. 40L de capacidad.', img: 'https://picsum.photos/seed/bag/400/300', eco: true },
-  { id: 3, name: 'Jabón Artesanal', price: 25, desc: 'Jabón natural de oliva y lavanda. Sin químicos.', img: 'https://picsum.photos/seed/soap/400/300', eco: true },
-  { id: 4, name: 'Botella Reutilizable', price: 69, desc: 'Botella térmica de acero inoxidable. 750ml.', img: 'https://picsum.photos/seed/bottle/400/300', eco: true },
-  { id: 5, name: 'Compostador Hogar', price: 249, desc: 'Compostador de cocina con carbón activado.', img: 'https://picsum.photos/seed/compost/400/300', eco: true },
-  { id: 6, name: 'Pack Ahorro Eco', price: 139, desc: 'Set de 4 productos ecológicos esenciales.', img: 'https://picsum.photos/seed/eco-pack/400/300', eco: true },
-  { id: 7, name: 'Shampoo Sólido', price: 42, desc: 'Shampoo sólido de romero y menta.', img: 'https://picsum.photos/seed/shampoo/400/300', eco: true },
-  { id: 8, name: 'Velas de Cera Natural', price: 55, desc: 'Velas artesanales de cera de soya.', img: 'https://picsum.photos/seed/candle/400/300', eco: true }
+  { id: 1, name: 'Kit Bambú', price: 89, desc: 'Cepillos, cepillo dental y pajitas de bambú orgánico.', img: 'https://loremflickr.com/400/300/bamboo?lock=1', eco: true },
+  { id: 2, name: 'Bolsa Reutilizable', price: 35, desc: 'Bolsa plegable de algodón orgánico. 40L de capacidad.', img: 'https://loremflickr.com/400/300/tote,bag?lock=2', eco: true },
+  { id: 3, name: 'Jabón Artesanal', price: 25, desc: 'Jabón natural de oliva y lavanda. Sin químicos.', img: 'https://loremflickr.com/400/300/soap,handmade?lock=3', eco: true },
+  { id: 4, name: 'Botella Reutilizable', price: 69, desc: 'Botella térmica de acero inoxidable. 750ml.', img: 'https://loremflickr.com/400/300/water,bottle?lock=4', eco: true },
+  { id: 5, name: 'Compostador Hogar', price: 249, desc: 'Compostador de cocina con carbón activado.', img: 'https://loremflickr.com/400/300/compost?lock=5', eco: true },
+  { id: 6, name: 'Pack Ahorro Eco', price: 139, desc: 'Set de 4 productos ecológicos esenciales.', img: 'https://loremflickr.com/400/300/eco,products?lock=6', eco: true },
+  { id: 7, name: 'Shampoo Sólido', price: 42, desc: 'Shampoo sólido de romero y menta.', img: 'https://loremflickr.com/400/300/shampoo,bar?lock=7', eco: true },
+  { id: 8, name: 'Velas de Cera Natural', price: 55, desc: 'Velas artesanales de cera de soya.', img: 'https://loremflickr.com/400/300/candle,soy?lock=8', eco: true }
 ];
 
 let cart = [];
